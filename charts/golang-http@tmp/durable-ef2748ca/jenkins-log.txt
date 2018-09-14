@@ -1,0 +1,7 @@
++ make tag
+2018/09/14 02:14:55 MANIFEST_UNKNOWN: "Failed to fetch \"0.0.4\" from request \"/v2/dlorenc-vmtest2/dlorenc/golang-http/manifests/0.0.4\"."
+sed -i -e "s/version:.*/version: 0.0.4/" Chart.yaml
+sed -i -e "s|repository: .*|repository: gcr.io/dlorenc-vmtest2\/dlorenc\/golang-http|" values.yaml
+sed -i -e "s/tag: .*/tag: 0.0.4/" values.yaml
+sed -i -e "s/digest: .*/digest: /" values.yaml
+git add --all
