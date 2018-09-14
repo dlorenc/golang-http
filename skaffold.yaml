@@ -8,7 +8,9 @@ build:
   - imageName: changeme
     workspace: .
     docker: {}
-  local: {}
+  googleCloudBuild:
+    projectId: dlorenc-vmtest2
+
 deploy:
   kubectl:
     manifests:
