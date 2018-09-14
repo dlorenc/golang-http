@@ -60,6 +60,8 @@ pipeline {
               sh "echo \$(jx-release-version) > VERSION"
             }
             dir ('/home/jenkins/go/src/github.com/dlorenc/golang-http/charts/golang-http') {
+              sh "go get github.com/google/go-containerregistry/cmd/crane"
+              sh "go install github.com/google/go-containerregistry/cmd/crane"
               sh "make tag"
             }
             dir ('/home/jenkins/go/src/github.com/dlorenc/golang-http') {
