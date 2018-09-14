@@ -3,6 +3,8 @@ CURRENT=$(pwd)
 NAME := golang-http
 OS := $(shell uname)
 VERSION := $(shell cat ../../VERSION)
+IMAGE ?= $(DOCKER_REGISTRY)/dlorenc/$(NAME):$(VERSION)
+DIGEST := $(shell crane digest $(IMAGE))
 
 build: clean
 	rm -rf requirements.lock
@@ -34,10 +36,12 @@ tag:
 ifeq ($(OS),Darwin)
 	sed -i "" -e "s/version:.*/version: $(VERSION)/" Chart.yaml
 	sed -i "" -e "s/tag: .*/tag: $(VERSION)/" values.yaml
+	sed -i "" -e "s/digest: .*/digest: $(DIGEST)/" values.yaml
 else ifeq ($(OS),Linux)
 	sed -i -e "s/version:.*/version: $(VERSION)/" Chart.yaml
 	sed -i -e "s|repository: .*|repository: $(DOCKER_REGISTRY)\/dlorenc\/$(NAME)|" values.yaml
 	sed -i -e "s/tag: .*/tag: $(VERSION)/" values.yaml
+	sed -i -e "s/digest: .*/digest: $(DIGEST)/" values.yaml
 else
 	echo "platfrom $(OS) not supported to tag with"
 	exit -1
