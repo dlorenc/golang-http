@@ -5,10 +5,12 @@ build:
     envTemplate:
       template: "{{.DOCKER_REGISTRY}}/dlorenc/golang-http:{{.VERSION}}"
   artifacts:
-  - imageName: changeme
+  - imageName: gcr.io/dlorenc-vmtest2/dlorenc/golang-http
     workspace: .
     docker: {}
-  local: {}
+  googleCloudBuild:
+    projectId: dlorenc-vmtest2
+
 deploy:
   kubectl:
     manifests:

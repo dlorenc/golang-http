@@ -7,6 +7,7 @@ pipeline {
       APP_NAME          = 'golang-http'
       GIT_PROVIDER      = 'github.com'
       CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
+      DOCKER_REGISTRY = "gcr.io/dlorenc-vmtest2"
     }
     stages {
       stage('CI Build and push snapshot') {
