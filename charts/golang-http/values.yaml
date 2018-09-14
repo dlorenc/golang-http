@@ -3,10 +3,10 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: draft
-  tag: dev
+  repository: gcr.io/dlorenc-vmtest2/dlorenc/golang-http
+  tag: 0.0.6
   pullPolicy: IfNotPresent
-  digest: sha256:replaceme
+  digest: sha256:8a491d8a7013e58ef0415058fcbd6d68b280d9099083ca0fe416726e5deadb6b
 service:
   name: golang-http
   type: ClusterIP
