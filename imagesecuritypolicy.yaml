@@ -4,6 +4,8 @@ metadata:
   name: lock-down-staging
   namespace: jx-staging
 spec:
+  imageWhitelist:
+  - jenkinsxio/exposecontroller:2.3.58
   packageVulnerabilityRequirements:
     maximumSeverity: MEDIUM
     whitelistCVEs:

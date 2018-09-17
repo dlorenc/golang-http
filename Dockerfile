@@ -1,4 +1,4 @@
-FROM l.gcr.io/google/ubuntu:latest
+FROM scratch
 EXPOSE 8080
 ENTRYPOINT ["/golang-http"]
 COPY ./bin/ /
