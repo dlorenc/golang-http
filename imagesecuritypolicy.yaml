@@ -1,0 +1,10 @@
+apiVersion: kritis.grafeas.io/v1beta1
+kind: ImageSecurityPolicy
+metadata:
+  name: lock-down-staging
+  namespace: jx-staging
+spec:
+  packageVulnerabilityRequirements:
+    maximumSeverity: MEDIUM
+    whitelistCVEs:
+      - providers/goog-vulnz/notes/CVE-2017-1000081
