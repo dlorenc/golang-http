@@ -1,0 +1,6 @@
++ make tag
+sed -i -e "s/version:.*/version: 0.0.12/" Chart.yaml
+sed -i -e "s|repository: .*|repository: gcr.io/dlorenc-vmtest2\/dlorenc\/golang-http|" values.yaml
+sed -i -e "s/tag: .*/tag: 0.0.12/" values.yaml
+sed -i -e "s/digest: .*/digest: sha256:3828ec2573bb8e7def65b80e8de99fcb208b2830dfc32f67dc42d92287f344c4/" values.yaml
+git add --all
